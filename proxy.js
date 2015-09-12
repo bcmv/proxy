@@ -88,7 +88,7 @@ function eachHeader (obj, fn) {
     });
   } else {
     // otherwise we can *only* proxy the header names as lowercase'd
-    var headers = obj.headers;p
+    var headers = obj.headers;
     if (!headers) return;
     Object.keys(headers).forEach(function (key) {
       var value = headers[key];
