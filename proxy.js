@@ -88,7 +88,7 @@ function eachHeader (obj, fn) {
     });
   } else {
     // otherwise we can *only* proxy the header names as lowercase'd
-    var headers = obj.headers;
+    var headers = obj.headers;p
     if (!headers) return;
     Object.keys(headers).forEach(function (key) {
       var value = headers[key];
@@ -233,6 +233,7 @@ function onrequest (req, res) {
       res.writeHead(proxyRes.statusCode, headers);
       proxyRes.pipe(res);
       res.on('finish', onfinish);
+      res.on('error', function(e){console.log('eee')})
     });
     proxyReq.on('error', function (err) {
       debug.proxyResponse('proxy HTTP request "error" event\n%s', err.stack || err);
